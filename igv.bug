@@ -113,3 +113,14 @@ software DriveWare 7.3.2
 BUG A negative target velocity has to be set to make left motor spins forward.
 
 SOL In "condiguration 0", set "Rotation: to "Inverted".
+
+******************************************************************************* 
+******************************************************************************* 
+date     07/22/2016
+hardware DPRALTE-060B080 Servo Drive
+******************************************************************************* 
+BUG Cannot change serial communication address of the servo drive.
+
+SOL Pull the SELECT pin to SIGANL GROUND, that is put a jumper between pin 1 
+    and pin 5. Otherwise the servo drive is always operates with address 63 and
+    baudrate 115200 (default configuration).
