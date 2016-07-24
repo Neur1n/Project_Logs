@@ -23,11 +23,14 @@ TODO For now each serial command, of type <uint8_t>, is stored into a <static>
     array since without <static> the commands vanished for unknown reason 
     when they were sent to the servo drive from Windows OS. 
 
-    However this makes the lengths of Tx buffer and Rx buffer fixed and a lot 
+    However this makes the lengths of TX buffer and RX buffer fixed and a lot 
     of <static uint8_t> arrays need to be declared as a workaround, which makes
     me struggling with the naming.
 
     So I'm gonna try again in Linux.
+
+SOL On 07/24/2016, The names of TX and RX buffers are unified to "TxBuffer" and
+    "RxBuffer" and it worked.
 
 ******************************************************************************* 
 *******************************************************************************
