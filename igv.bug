@@ -140,11 +140,8 @@ BUG According to the tutorial of the "sicktoolbox_wrapper" package
     
     In the current version of RViz (came with ROS Indigo), I think the "Floor 
     Scan" has been repalced with "LaserScan".
-    
-    In the website of the package (http://wiki.ros.org/sicktoolbox_wrapper) the 
-    published topic is "LaserScan".
 
-    None of above was working.
+    However this was not working.
 
 SOL Set the "Fixed Frame" in "Global Options" to be "/laser", and the topic of 
     "LaserScan" to be "/scan".
