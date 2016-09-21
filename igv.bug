@@ -127,3 +127,24 @@ BUG Cannot change serial communication address of the servo drive.
 SOL Pull the SELECT pin to SIGANL GROUND, that is put a jumper between pin 1 
     and pin 5. Otherwise the servo drive is always operates with address 63 and
     baudrate 115200 (default configuration).
+
+******************************************************************************* 
+******************************************************************************* 
+date    09/20/2016
+library sicktoolbox_wrapper
+******************************************************************************* 
+BUG According to the tutorial of the "sicktoolbox_wrapper" package
+    (http://wiki.ros.org/sicktoolbox_wrapper/Tutorials/UsingTheSicklms), the
+    "Fixed Frame" in "Global Options" is set to "/base_laser", and "Topic" of
+    "Floor Scan" is "/scan".
+    
+    In the current version of RViz (came with ROS Indigo), I think the "Floor 
+    Scan" has been repalced with "LaserScan".
+    
+    In the website of the package (http://wiki.ros.org/sicktoolbox_wrapper) the 
+    published topic is "LaserScan".
+
+    None of above was working.
+
+SOL Set the "Fixed Frame" in "Global Options" to be "/laser", and the topic of 
+    "LaserScan" to be "/scan".
