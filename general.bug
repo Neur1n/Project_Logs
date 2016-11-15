@@ -1,0 +1,47 @@
+PROJECT: java_test
+
+
+******************************************************************************* 
+*******************************************************************************
+date    11/14/2016
+library test.java
+*******************************************************************************
+BUG When using "javac -cp <arg_1> <arg_2>" to compile java codes using the 
+    stdlib.jar file, the compiler could not find the package. I had trid
+
+    //codebegin
+        import stdlib;
+        // or put it into a sub-directory "lib"
+        import lib.stdlib;
+    //codeend
+
+    Somebody in StackFlow said that stdlib.jar is not a package. Though I did 
+    not import it in the class, other errors still occurred during compiling.
+
+SOL It turned out that I have to do "javac -cp .;stdlib.jar test.java" - notice 
+    the ".;".
+
+    To run the executable file, I have to specify the classpth again:
+    "java -cp .;stdlib.jar SortArray".
+    
+    The following code is working
+
+         //codebegin
+             import java.util.Arrays;
+         
+             class SortArray
+             {
+                 public static void main(String[] args)
+                 {
+                     int[] array = {3, 5, 7, 8, 1, 0, 9};
+                     Arrays.sort(array);
+                     for(int i = 0; i < array.length; i++)
+                     { 
+                         // System.out.print(array[i]);
+                         StdOut.print(array[i]);
+                     }
+                 }
+             }
+         //codeend
+
+    

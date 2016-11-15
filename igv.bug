@@ -8,10 +8,10 @@ library DPRALTE060B080.cpp
 *******************************************************************************
 BUG Odometry cannot be read correctly if
 
-        //cppbegin
+        //codebegin
             void getReadAccess_Left();
             void getReadAcess_Right();
-        //cppend
+        //codeend
 
     are used, since the length of response of this serial command is different
     from the other commands of this library.
@@ -39,22 +39,22 @@ library DPRALTE060B080.cpp
 *******************************************************************************
 BUG The velocity was 437.10rpm when the desired is 10rpm, since
 
-        //cppbegin
+        //codebegin
             void getVelocityArray();
-        //cppend
+        //codeend
     
     was called twice, which the 2nd time is in
     
-        //cppbegin
+        //codebegin
             void setVelocity_Left(int);
             void setVelocity_Right(int);
-        //cppend
+        //codeend
 
     The 1st call is always in
 
-        //cppbegin
+        //codebegin
             void getCRCArray();
-        //cppend
+        //codeend
 
 SOL Remove the 2nd call.
 
@@ -70,15 +70,15 @@ BUG The serial signal read from the OS5000-S compass is in the format of
     of data type <std::string>.
     However the string is not always read completely when using
 
-        //cppbegin
+        //codebegin
             size_t serial::Serial::read(std::string &buffer, size_t size);
-        //cppend
+        //codeend
 
 SOL Use
 
-        //cppbegin
+        //codebegin
             std::string serial::Serial::readline(size_t size, std::string eol);
-        //cppend
+        //codeend
 
     instead, since OS5000-S is publishing line by line then I assume "eol" of
     each line is "\n". It works much better then.
@@ -102,11 +102,11 @@ BUG The data is not updating when using <std::stringstream> for data type
 SOL <std::stringstream> needs to be cleared each time before streaming the new
     data, i.e.
 
-        //cppbegin
+        //codebegin
             std::stringstream ss;
             ss.str(std::string());
             ss.clear();
-        //cppend
+        //codeend
 
 ******************************************************************************* 
 ******************************************************************************* 
