@@ -1,0 +1,78 @@
+[P PROJECT] Intelligent Ground Vehicle
+[O NOTE] This case is logged into an isolated ducument since it presents an example
+    of problem solving.
+
+*******************************************************************************
+*******************************************************************************
+[b date]    01/16/2017
+[b library] sicktoolbox
+*******************************************************************************
+[B CASE] Jugesh was trying to use the sicktoolbox to debug Sick LMS211-S07 LiDAR by
+     following an example provided by the guide book.
+
+[R BUG] The compiler couldn't find a header file by
+
+        //codebegin
+            #include <sicklms-1.0/SickLMS.hh>
+        //codeend
+
+[B CASE] I tried to locate the header file by
+
+        $ locate SickLMS.hh
+
+    No outputs. Then tried
+
+        $ locate sicklms
+        $ rospack find sicktoolbox
+
+    The 1st command listed the location of "sicklms" which is an executable
+    node file of the package "sicktoolbox_wrapper". The 2nd command showed the
+    location of the "sicktoolbox "package. which allowed me to check what is in
+    the package. It turned out there is [r NO] decalration (header) or
+    implementation files in the pachage directory.
+
+[O NOTE] This verified my assumption that only the node files of "sicktoolbox"
+    package were installed into the system. I wanted to locate "sicklms" since
+    there is this command provided by the "sicktoolbox_wrapper" tutorial
+    ([b http://wiki.ros.org/sicktoolbox_wrapper/Tutorials/UsingTheSicklms])
+
+        $ rosrun sicktoolbox_wrapper [r sicklms] _port:=/dev/XXX _baud:=38400
+
+[B CASE] Downloaded the library from [b http://sicktoolbox.sourceforge.net/] and tried
+    to compile to example.
+
+[R BUG] Still couldn't locate the header file.
+
+[B CASE] Tried to compile the "lms_mean_values" example that comes with the
+    library using
+
+        $ make
+
+[R BUG] Failed. (I forgot the output of the terminal.)
+
+[B CASE] Check the guide book. On page 6 and 7, it says that the C++ drivers has to
+    be built by
+
+        $ ./configure
+        $ make
+        $ sudo make install
+
+[R BUG] 4 errors occurred during "make". Part of the error messages is
+
+        error: there are no arguments to 'usleep' that depend on a template
+        parameter, so a declaration of 'usleep' must be available
+        [-fpermissive]
+            usleep(1000);
+                       ^
+
+[O NOTE] Don't fucking complain why this happens. Compiler provides such messages
+    for debugging, not complaining. And don't fucking ask me, ask Google, or
+    DuckDuckGo as you wish.
+
+[G SOL] I asked DuckDuckGo, and I got this solution
+    ([b http://answers.ros.org/question/230106/error-while-installing-sick-lidar-cmatlab-toolbox/])
+
+        [g We can solve this issue by adding line: #include <unistd.h> into 2]
+        [g source files:]
+        [g c++/drivers/base/src/SickLIDAR.hh]
+        [g c++/drivers/base/src/SickBufferMonitor.hh]

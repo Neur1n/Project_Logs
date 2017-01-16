@@ -1,2 +1,2 @@
-# bug_logs
-Logs of project bugs, including libraries, softwares, hardwares.
+# Project Logs
+Logs of project bugs, notes or some cases.
