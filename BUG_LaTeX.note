@@ -14,3 +14,9 @@
     448 of the file "pdfpages.sty" temporarily for this document.
 
     Solution found on [b http://stackoverflow.com/a/6682142].
+
+[R BUG] The hyper links "[r \href]{<url>}{<texts>}" do not work when the file that
+    contains them is inculded by "[r \includepdf]".
+
+[O TODO] Some say this can be solved by using the package [b Pax], but then some say it
+    is cumbersome.
