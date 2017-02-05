@@ -1,0 +1,14 @@
+[P PROJECT] LaTeX
+
+
+*******************************************************************************
+*******************************************************************************
+[b date] 02/04/2017
+[b file] Jihang_Resume_TU_Delft.tex
+*******************************************************************************
+[R BUG] When using "[r \includepdf]" at the beginning of a document, it always starts
+    with a blank page.
+
+[G SOL] This is because the "pdfpages" package always insert a new page before the
+    file that needs to be included. To solve it, delete the "[r \newpage]" on line
+    448 of the file "pdfpages.sty" temporarily for this document.
