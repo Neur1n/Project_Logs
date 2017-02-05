@@ -12,3 +12,5 @@
 [G SOL] This is because the "pdfpages" package always insert a new page before the
     file that needs to be included. To solve it, delete the "[r \newpage]" on line
     448 of the file "pdfpages.sty" temporarily for this document.
+
+    Solution found on [b http://stackoverflow.com/a/6682142].
