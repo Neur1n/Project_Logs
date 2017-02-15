@@ -7,7 +7,7 @@
 [b library] test.java
 *******************************************************************************
 [R BUG] When using "javac -cp <arg_1> <arg_2>" to compile java codes using the
-    stdlib.jar file, the compiler could not find the package. I had trid
+    stdlib.jar file, the compiler could not find the package. I had tried
 
     //codebegin
         import stdlib;
@@ -21,7 +21,7 @@
 [G SOL] It turned out that I have to do "javac -cp .;stdlib.jar test.java" - notice
     the ".;".
 
-    To run the executable file, I have to specify the classpth again:
+    To run the executable file, I have to specify the class path again:
     "java -cp .;stdlib.jar SortArray".
 
     The following code is working

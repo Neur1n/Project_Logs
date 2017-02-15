@@ -1,5 +1,5 @@
 [P PROJECT] Intelligent Ground Vehicle
-[O NOTE] This case is logged into an isolated ducument since it presents an example
+[O NOTE] This case is logged into an isolated document since it presents an example
     of problem solving.
 
 *******************************************************************************
@@ -65,11 +65,11 @@
             usleep(1000);
                        ^
 
-[O NOTE] Don't fucking complain why this happens. Compiler provides such messages
-    for debugging, not complaining. And don't fucking ask me, ask Google, or
-    DuckDuckGo as you wish.
+[O NOTE] Don't complain why this happens. Compiler provides such messages for
+    debugging, not complaining. And don't ask me, ask Google, or DuckDuckGo as
+    you wish.
 
-[G SOL] I asked DuckDuckGo, and I got this solution
+[G SOL] I got this solution
     ([b http://answers.ros.org/question/230106/error-while-installing-sick-lidar-cmatlab-toolbox/])
 
         [g We can solve this issue by adding line: #include <unistd.h> into 2]

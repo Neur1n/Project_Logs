@@ -115,7 +115,7 @@
 *******************************************************************************
 [R BUG] A negative target velocity has to be set to make left motor spins forward.
 
-[G SOL] In "condiguration 0", set "Rotation: to "Inverted".
+[G SOL] In "configuration 0", set "Rotation: to "Inverted".
 
 *******************************************************************************
 *******************************************************************************
@@ -139,7 +139,7 @@
     "Floor Scan" is "/scan".
 
     In the current version of RViz (came with ROS Indigo), I think the "Floor
-    Scan" has been repalced with "LaserScan".
+    Scan" has been replaced with "LaserScan".
 
     However this was not working.
 
